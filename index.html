@@ -15,29 +15,51 @@
 </head>
 <body>
     <header>
-        <div class="logoWrapper">FontIcons</div>
+        <div class="logoWrapper">
+            <div class="container">
+                FontIcons
+            </div>
+        </div>
 
-        <div class="filterSelectionWrapper">
-            <label for="selectIconsFilter">FILTRA PER TIPO </label>
+        <div class="optionsWrapper">
+            <div class="filterSelectionWrapper">
+                <label for="selectIconsFilter">FILTRA PER TIPO </label>
 
-            <select name="iconsFilter" id="selectIconsFilter">
-                <option selected value="">All</option>
-                <!-- <option value="animal">animal</option>
-                <option value="beverage">beverage</option>
-                <option value="food">food</option> -->
-            </select>
+                <select name="iconsFilter" id="selectIconsFilter">
+                    <option selected value="">All</option>
+                </select>                
+            </div>
+
+            <div class="addIconWrapper">
+                Aggiungi un' icona
+                
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" placeholder="name" id="nameNewIcon"></td>
+                            <td><input type="text" placeholder="family" id="familyNewIcon"></td>
+                            <td><input type="text" placeholder="prefix" id="prefixNewIcon"></td>
+                            <td><input type="text" placeholder="category" id="categoryNewIcon"></td>
+                        </tr>
+                    </tbody>
+                </table>                
+                
+                <button id="addNewIcon">inserisci</button>
+            </div>
         </div>            
     </header>
 
     <main>
-        <div class="iconsWrapper" id="iconsWrapper">
+        <div class="container">
+            <div class="iconsWrapper" id="iconsWrapper">
 
-            <!-- <div class="icon">
-                <i class="fas fa-cat"></i>
-                <div>gatto</div>
-            </div> -->
-            
-        </div>
+                <!-- <div class="icon">
+                    <i class="fas fa-cat"></i>
+                    <div>gatto</div>
+                </div> -->
+                
+            </div>
+        </div>  
     </main>
 
     <script src="./app.js"></script>

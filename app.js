@@ -177,3 +177,50 @@ document.querySelector("#selectIconsFilter").addEventListener('change', (event) 
     displayIcons(coloredIcons.filter( (elm) => (elm.category == selectedFilter || selectedFilter == "") ), iconsWrapper);
 
 });
+
+
+
+// after click add icon to the list
+// then update page
+
+document.querySelector("#addNewIcon").addEventListener('click', () => {
+
+    // get input values
+    const nameNewIcon = document.querySelector("#nameNewIcon").value;
+    const familyNewIcon = document.querySelector("#familyNewIcon").value;
+    const prefixNewIcon = document.querySelector("#prefixNewIcon").value;
+    const categoryNewIcon = document.querySelector("#categoryNewIcon").value;
+
+    // validation
+    if ( nameNewIcon == "" || familyNewIcon == "" || prefixNewIcon == "" || categoryNewIcon == "" ) {
+        return;
+    }
+
+    // if category is new => let choose (and save) the color of the new category
+    if ( !categories.includes(categoryNewIcon) ) {
+        categories.push(categoryNewIcon);
+        const newColor = prompt(`inserisci il colore per la nuova categoria:`);
+        colors[categoryNewIcon] = newColor;
+    }
+
+    // add icon to the list
+    coloredIcons.push( 
+        {
+            name: nameNewIcon,
+            family: familyNewIcon,
+            prefix: prefixNewIcon,
+            category: categoryNewIcon,
+            color: colors[categoryNewIcon]
+        }
+    );
+
+    // update the page
+    displayIcons(coloredIcons, iconsWrapper);
+
+    // clear input fields
+    document.querySelector("#nameNewIcon").value = "";
+    document.querySelector("#familyNewIcon").value = "";
+    document.querySelector("#prefixNewIcon").value = "";
+    document.querySelector("#categoryNewIcon").value = "";
+
+});

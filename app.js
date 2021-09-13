@@ -113,15 +113,78 @@ const icons = [
 	}
 ];
 
+const colors = {
+    'animal': 'green',
+    'beverage': 'red',
+    'food': 'yellow'
+};
 
+
+// add color propriety on each icon (new array)
+const coloredIcons = icons.map( (elm) => {
+
+    return {
+        ...elm,
+        'color': colors[elm.category] 
+    };
+});
+
+
+// add select options to html
+const categories = [];
 icons.forEach( (elm) => {
+    if ( !categories.includes(elm.category) ) {
+        categories.push(elm.category);
+        document.getElementById("selectIconsFilter").innerHTML += `
+            <option value="${elm.category}">${elm.category}</option>
+        `;
+    }
+});
 
-    const {name, family, prefix} = elm;
 
-    document.querySelector("#iconsWrapper").innerHTML += `
-        <div class="icon">
-            <i class="${family} ${prefix}${name}"></i>
-            <div>${name}</div>
-        </div> 
-    `;
+// input: array of icons to display
+// output: prints on screen the icons
+const displayIcons = ((array, containerIcons) => {
+
+    containerIcons.innerHTML = "";
+
+    array.forEach( (elm) => {
+
+        const {name, family, prefix, category, color} = elm;
+
+        containerIcons.innerHTML += `
+            <div class="icon ${category}">
+                <i style="color: ${color};" class="${family} ${prefix}${name}"></i>
+                <div>${name}</div>
+            </div> 
+        `;
+    });
+});
+
+
+
+const iconsWrapper = document.querySelector("#iconsWrapper");
+
+// display all icons on page load 
+displayIcons(coloredIcons, iconsWrapper);
+
+
+// filter icons for category on select change
+document.querySelector("#selectIconsFilter").addEventListener('change', (event) => {
+
+    const selectedFilter = event.target.value;
+    
+    if ( selectedFilter == 'animal' ) {
+        displayIcons(coloredIcons.filter( (elm) => elm.category == 'animal' ), iconsWrapper);
+
+    } else if ( selectedFilter == 'food' ) {
+        displayIcons(coloredIcons.filter( (elm) => elm.category == 'food' ), iconsWrapper);
+        
+    } else if ( selectedFilter == 'beverage' ) {
+        displayIcons(coloredIcons.filter( (elm) => elm.category == 'beverage' ), iconsWrapper);
+        
+    } else {
+        displayIcons(coloredIcons.filter( () => true ), iconsWrapper);
+
+    }
 });

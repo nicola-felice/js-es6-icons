@@ -201,6 +201,9 @@ document.querySelector("#addNewIcon").addEventListener('click', () => {
         categories.push(categoryNewIcon);
         const newColor = prompt(`inserisci il colore per la nuova categoria:`);
         colors[categoryNewIcon] = newColor;
+        document.getElementById("selectIconsFilter").innerHTML += `
+            <option value="${categoryNewIcon}">${categoryNewIcon}</option>
+        `;
     }
 
     // add icon to the list

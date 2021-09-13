@@ -173,18 +173,7 @@ displayIcons(coloredIcons, iconsWrapper);
 document.querySelector("#selectIconsFilter").addEventListener('change', (event) => {
 
     const selectedFilter = event.target.value;
-    
-    if ( selectedFilter == 'animal' ) {
-        displayIcons(coloredIcons.filter( (elm) => elm.category == 'animal' ), iconsWrapper);
 
-    } else if ( selectedFilter == 'food' ) {
-        displayIcons(coloredIcons.filter( (elm) => elm.category == 'food' ), iconsWrapper);
-        
-    } else if ( selectedFilter == 'beverage' ) {
-        displayIcons(coloredIcons.filter( (elm) => elm.category == 'beverage' ), iconsWrapper);
-        
-    } else {
-        displayIcons(coloredIcons.filter( () => true ), iconsWrapper);
+    displayIcons(coloredIcons.filter( (elm) => (elm.category == selectedFilter || selectedFilter == "") ), iconsWrapper);
 
-    }
 });

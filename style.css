@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Rubik', sans-serif;
+    background-color: rgb(235, 235, 235);
+
+}
+
+
+
+/* _______ HEADER _______ */
+#selectIconsFilter {
+    background-color: white;
+    border: transparent;
+    margin-left: .5rem;
+    padding: .15rem;
+}
+
+.logoWrapper {
+    font-family: 'Acme', sans-serif;
+    color: rgb(41, 177, 221);
+    font-size: 2.35rem;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    background-color: white;
+}
+
+.filterSelectionWrapper {
+    background-color: rgb(41, 177, 221);
+    padding: 1rem;
+    color: white;
+    font-size: 1.15rem;
+    text-align: center;
+}
+/* _______ END HEADER _______ */
+
+
+
+/* _______ MAIN _______ */
+
+.iconsWrapper {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-start;
+    flex-wrap: wrap;
+}
+
+.icon {
+    background-color: white;
+    width: 18%;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 3px 3px 2px 0px rgba(0,0,0,0.22);
+    margin: 1rem 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.icon i {
+    font-size: 1.5rem;
+    margin-bottom: .25rem;
+}
+/* _______ END MAIN _______ */
